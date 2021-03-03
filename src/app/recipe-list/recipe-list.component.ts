@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RecipesService } from '../recipes/recipes.service';
-
+import { RecipesJson, RecipesService } from '../recipes/recipes.service';
+import { take } from 'rxjs/operators'
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
@@ -9,12 +10,18 @@ import { RecipesService } from '../recipes/recipes.service';
 export class RecipeListComponent implements OnInit {
 
   recipes: string[] = [];
+  recipes$: Observable<RecipesJson>;
 
   constructor(private recipeService: RecipesService) {
+    this.recipes$ = this.recipeService.list();
   }
 
   ngOnInit(): void {
-    this.recipes = this.recipeService.list();
+    // this.recipeService
+    //   .list()
+    //   .pipe(take(1))
+    //   .subscribe(result => {
+    //     this.recipes = result.recipes;
+    //   });
   }
-
 }
