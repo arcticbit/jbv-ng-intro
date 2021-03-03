@@ -10,17 +10,9 @@ export interface RecipesJson {
 @Injectable()
 export class RecipesService {
 
-  private recipes: string[];
-
   constructor(
     private http: HttpClient,
-  ) {
-    this.recipes = [
-      'Pasta och köttfärssås',
-      'Blodpudding',
-      'Kebabrulle',
-    ];
-  }
+  ) {}
 
   list(): Observable<RecipesJson> {
     return this.http

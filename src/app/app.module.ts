@@ -9,6 +9,7 @@ import { RecipeTitleComponent } from './recipe-title/recipe-title.component';
 import { DemoComponent } from './demo/demo.component';
 import { RecipesService } from './recipes/recipes.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     MyComponentComponent,
     RecipeListComponent,
     RecipeTitleComponent,
-    DemoComponent
+    DemoComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
