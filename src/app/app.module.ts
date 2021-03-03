@@ -6,19 +6,24 @@ import { AppComponent } from './app.component';
 import { MyComponentComponent } from './my-component/my-component.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeTitleComponent } from './recipe-title/recipe-title.component';
+import { DemoComponent } from './demo/demo.component';
+import { RecipesService } from './recipes/recipes.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     MyComponentComponent,
     RecipeListComponent,
-    RecipeTitleComponent
+    RecipeTitleComponent,
+    DemoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    RecipesService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
