@@ -1,0 +1,5 @@
+<p>Our recipe list includes {{ recipes.length }} recipes. </p>
+
+<div *ngFor="let recipe of recipes">
+  <app-recipe-title [title]="recipe"></app-recipe-title>
+</div>
