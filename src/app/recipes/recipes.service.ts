@@ -3,10 +3,16 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 
-
-export interface RecipesJson {
-  recipes: string[];
+export interface Ingredient {
+  quantity: string;
+  name: string;
+  type: string;
 }
+export interface Recipe {
+  name: string;
+  ingredients: Ingredient[];
+}
+
 @Injectable()
 export class RecipesService {
 
@@ -14,9 +20,9 @@ export class RecipesService {
     private http: HttpClient,
   ) {}
 
-  list(): Observable<RecipesJson> {
+  list(): Observable<Recipe[]> {
     return this.http
-      .get<RecipesJson>('http://localhost:62355/assets/food.json')
+      .get<Recipe[]>('http://localhost:62355/assets/food.json')
       .pipe(take(1));
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RecipesJson, RecipesService } from '../recipes/recipes.service';
+import { Recipe, RecipesService } from '../recipes/recipes.service';
 import { take } from 'rxjs/operators'
 import { Observable } from 'rxjs';
 @Component({
@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class RecipeListComponent implements OnInit {
 
   recipes: string[] = [];
-  recipes$: Observable<RecipesJson>;
+  recipes$: Observable<Recipe[]>;
 
   constructor(private recipeService: RecipesService) {
     this.recipes$ = this.recipeService.list();
