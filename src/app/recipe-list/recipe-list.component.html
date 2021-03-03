@@ -1,7 +1,9 @@
 <div *ngIf="recipes$ | async as data; else loading">
   <p>Receptlistan innehåller {{ data.length }} recept.</p>
   <div *ngFor="let recipe of data">
-    <app-recipe-title [title]="recipe.name"></app-recipe-title>
+    <a routerLink="./{{recipe.id}}">
+      <app-recipe-title [title]="recipe.name"></app-recipe-title>
+    </a>
   </div>
 </div>
 <ng-template #loading>

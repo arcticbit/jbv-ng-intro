@@ -10,6 +10,7 @@ import { DemoComponent } from './demo/demo.component';
 import { RecipesService } from './recipes/recipes.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './main/main.component';
+import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MainComponent } from './main/main.component';
     RecipeListComponent,
     RecipeTitleComponent,
     DemoComponent,
-    MainComponent
+    MainComponent,
+    RecipeDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,12 @@
+<div *ngIf="recipe$ | async as recipe; else missing">
+  <p>showing recipe {{ recipe.id }} works!</p>
+  <pre>
+    {{ recipe | json }}
+  </pre>
+</div>
+<ng-template #missing>
+  Recipe ID is not valid.
+  <a routerLink="..">
+    Go back to the list
+  </a>
+</ng-template>

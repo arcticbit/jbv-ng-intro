@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { filter, map, take } from 'rxjs/operators';
 
 export interface Ingredient {
   quantity: string;
@@ -9,6 +9,7 @@ export interface Ingredient {
   type: string;
 }
 export interface Recipe {
+  id: number;
   name: string;
   ingredients: Ingredient[];
 }
@@ -24,5 +25,17 @@ export class RecipesService {
     return this.http
       .get<Recipe[]>('http://localhost:62355/assets/food.json')
       .pipe(take(1));
+  }
+
+  get(id: number): Observable<Recipe | undefined> {
+    return this.http
+      .get<Recipe[]>('http://localhost:62355/assets/food.json')
+      .pipe(
+        take(1),
+        map(result => result.find(recipe => {
+            return recipe.id === id;
+          }
+        ))
+      );
   }
 }
