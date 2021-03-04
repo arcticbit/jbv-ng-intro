@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RecipesService } from '../recipes/recipes.service';
 
 import { RecipeListComponent } from './recipe-list.component';
+
+class MockRecipesService {
+  list() {}
+}
 
 describe('RecipeListComponent', () => {
   let component: RecipeListComponent;
@@ -8,7 +13,10 @@ describe('RecipeListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RecipeListComponent ]
+      declarations: [ RecipeListComponent ],
+      providers: [
+        { provide: RecipesService, useClass: MockRecipesService }
+      ]
     })
     .compileComponents();
   });

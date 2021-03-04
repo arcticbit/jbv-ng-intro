@@ -1,13 +1,13 @@
 <div *ngIf="recipes$ | async as data; else loading">
-  <p>Receptlistan innehåller {{ data.length }} recept.</p>
-  <div *ngFor="let recipe of data">
-    <a routerLink="./{{recipe.id}}">
-      <app-recipe-title [title]="recipe.name"></app-recipe-title>
-    </a>
-  </div>
+  <p>The database currently contains {{ data.length }} recipes.</p>
+
+  <app-recipe-list-item
+    *ngFor="let recipe of data"
+    [recipe]="recipe"
+  ></app-recipe-list-item>
 </div>
 <ng-template #loading>
-  Laddar recepten...
+  Loading recipes...
 </ng-template>
-
-<a routerLink="">Gå tillbaka till förstasidan</a>
+<br/>
+<a routerLink="">Back to the start page</a>

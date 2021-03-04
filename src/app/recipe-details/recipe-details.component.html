@@ -1,12 +1,33 @@
 <div *ngIf="recipe$ | async as recipe; else missing">
-  <p>showing recipe {{ recipe.id }} works!</p>
-  <pre>
-    {{ recipe | json }}
-  </pre>
+  <img [src]="recipe.imageURL" />
+
+  <h1>
+    {{ recipe.name }}
+  </h1>
+
+  <h2>
+    Ingredients
+  </h2>
+  <ul>
+    <li *ngFor="let ingredient of recipe.ingredients">
+      {{ getIngredientText(ingredient) }}
+    </li>
+  </ul>
+
+  <h2>
+    Steps
+  </h2>
+  <ol>
+    <li *ngFor="let step of recipe.steps">
+      {{ step }}
+    </li>
+  </ol>
+
 </div>
 <ng-template #missing>
   Recipe ID is not valid.
-  <a routerLink="..">
-    Go back to the list
-  </a>
 </ng-template>
+
+<a routerLink="..">
+  Go back to the list
+</a>

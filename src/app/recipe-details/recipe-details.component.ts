@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Recipe, RecipesService } from '../recipes/recipes.service';
+import { Ingredient, Recipe, RecipesService } from '../recipes/recipes.service';
 
 @Component({
   selector: 'app-recipe-details',
@@ -21,6 +21,11 @@ export class RecipeDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipe$ = this.svc.get(this.id);
+  }
+
+  getIngredientText(ingredient: Ingredient): string {
+    // before: return ingredient.quantity + ' ' + ingredient.name;
+    return `${ingredient.quantity} ${ingredient.name}`
   }
 
 }

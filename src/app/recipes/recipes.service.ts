@@ -11,7 +11,9 @@ export interface Ingredient {
 export interface Recipe {
   id: number;
   name: string;
+  imageURL: string;
   ingredients: Ingredient[];
+  steps: string[];
 }
 
 @Injectable()
@@ -23,13 +25,13 @@ export class RecipesService {
 
   list(): Observable<Recipe[]> {
     return this.http
-      .get<Recipe[]>('http://localhost:62355/assets/food.json')
+      .get<Recipe[]>('http://localhost:4200/assets/food.json')
       .pipe(take(1));
   }
 
   get(id: number): Observable<Recipe | undefined> {
     return this.http
-      .get<Recipe[]>('http://localhost:62355/assets/food.json')
+      .get<Recipe[]>('http://localhost:4200/assets/food.json')
       .pipe(
         take(1),
         map(result => result.find(recipe => {

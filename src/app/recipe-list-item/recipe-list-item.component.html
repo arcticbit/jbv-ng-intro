@@ -1,0 +1,7 @@
+
+<div class="list-item" *ngIf="recipe" routerLink="./{{recipe.id}}">
+  <div>
+    <img [src]="recipe.imageURL" style="width: 180px;" />
+  </div>
+  <app-recipe-title [title]="recipe.name"></app-recipe-title>
+</div>
