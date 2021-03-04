@@ -28,16 +28,13 @@ export class RecipesService {
   }
 
   add(recipe: Recipe) {
-    console.log(recipe);
-    this.query
-      .selectLast((e) => {
-        console.log(e)
-      });
-      // .pipe(tap(r => {
-      //   console.log('Here');
-      // recipe.id = r!.id + 1;
-      // this.recipesStore.add(recipe);
-    // }))
+
+    // Only local persistance :)
+
+    const ids = this.recipesStore.getValue().ids;
+    recipe.id = Math.max(...ids as number[]) + 1;
+
+    this.recipesStore.add(recipe);
   }
 
   update(id: ID, recipe: Partial<Recipe>) {

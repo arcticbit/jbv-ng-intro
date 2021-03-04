@@ -53,7 +53,7 @@ export class RecipeFormComponent implements OnInit {
 
   addRecipe(event: any) {
     this.service.add(this.newRecipe);
-    this.router.navigate(['..'])
+    this.router.navigate(['/recipes'])
     console.log(event)
   }
 
