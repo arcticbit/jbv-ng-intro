@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { Recipe } from '../recipes/state/recipe.model';
-import { RecipesQuery } from '../recipes/state/recipes.query';
-import { RecipesService } from '../recipes/state/recipes.service';
+import { Recipe } from '../../state/recipe.model';
+import { RecipesQuery } from '../../state/recipes.query';
+import { RecipesService } from '../../state/recipes.service';
+
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
@@ -18,6 +19,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
     private query: RecipesQuery,
   ) {
     this.recipes$ = this.query.selectAll();
+
   }
 
   ngOnInit(): void {

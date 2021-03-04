@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RecipesService } from '../recipes/recipes.service';
+import { RecipesService } from '../../state/recipes.service';
 
 import { RecipeListComponent } from './recipe-list.component';
 

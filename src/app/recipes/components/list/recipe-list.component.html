@@ -1,6 +1,8 @@
 <div *ngIf="recipes$ | async as data; else loading">
   <p>The database currently contains {{ data.length }} recipes.</p>
 
+  <button type="button" routerLink="new">Add recipe</button>
+
   <app-recipe-list-item
     *ngFor="let recipe of data"
     [recipe]="recipe"

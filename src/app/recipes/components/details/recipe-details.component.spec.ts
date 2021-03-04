@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
-import { RecipesService } from '../recipes/recipes.service';
+import { RecipesService } from '../../state/recipes.service';
 
 import { RecipeDetailsComponent } from './recipe-details.component';
 

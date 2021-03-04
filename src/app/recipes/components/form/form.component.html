@@ -1,0 +1,25 @@
+<form (submit)="addRecipe($event)">
+  <div>
+    <input type="text" placeholder="Name" name="recipeName" id="recipeName" [(ngModel)]="newRecipe.name" />
+    {{newRecipe.name }}
+  </div>
+  <div>
+    <input type="text" placeholder="Image URL" name="recipeImageUrl" id="recipeImageUrl" [(ngModel)]="newRecipe.imageURL" />
+  </div>
+  <div>
+    <div *ngFor="let ingredient of newRecipe.ingredients">
+      <input type="text" placeholder="Quantity" name="ingredientQuantity" [(ngModel)]="ingredient.quantity" />
+      <input type="text" placeholder="Name" name="ingredientName" [(ngModel)]="ingredient.name" />
+      <input type="text" placeholder="Type" name="ingredientType" [(ngModel)]="ingredient.type" />
+      <button type="button" (click)="deleteIngredient(ingredient)">-</button>
+    </div>
+    <button type="button" (click)="addIngredient()">+</button>
+  </div>
+  <div *ngFor="let step of newRecipe.steps; let i = index; trackBy:trackByIndex">
+    <input type="text" placeholder="Step" name="step-{{i}}" [(ngModel)]="newRecipe.steps[i]" />
+    <button type="button" (click)="deleteStep(step)">-</button>
+  </div>
+  <button type="button" (click)="addStep()">+</button>
+
+  <button type="submit">Save</button>
+</form>
