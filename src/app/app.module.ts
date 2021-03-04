@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './main/main.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { RecipeListItemComponent } from './recipe-list-item/recipe-list-item.component';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { RecipeListItemComponent } from './recipe-list-item/recipe-list-item.com
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AkitaNgDevtools.forRoot()
   ],
   providers: [
     RecipesService,

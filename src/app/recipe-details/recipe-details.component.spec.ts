@@ -37,7 +37,7 @@ describe('RecipeDetailsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should concatinate ingredient quantity and name into one string', () => {
+  it('should concatenate ingredient quantity and name into one string', () => {
     const expectation = "100 eggs";
     const output = component.getIngredientText({
       quantity: '100',
