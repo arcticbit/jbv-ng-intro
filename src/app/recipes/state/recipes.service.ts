@@ -13,8 +13,10 @@ export class RecipesService {
 
 
   get() {
-    return this.http.get<Recipe[]>('https://api.com').pipe(tap(entities => {
-      this.recipesStore.set(entities);
+    return this.http
+      .get<Recipe[]>('http://localhost:4200/assets/food.json')
+      .pipe(tap(entities => {
+        this.recipesStore.set(entities);
     }));
   }
 
@@ -22,7 +24,7 @@ export class RecipesService {
     this.recipesStore.add(recipe);
   }
 
-  update(id, recipe: Partial<Recipe>) {
+  update(id: ID, recipe: Partial<Recipe>) {
     this.recipesStore.update(id, recipe);
   }
 

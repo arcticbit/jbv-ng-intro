@@ -8,12 +8,15 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeTitleComponent } from './recipe-title/recipe-title.component';
 import { DemoComponent } from './demo/demo.component';
 import { RecipesService } from './recipes/recipes.service';
+import { RecipesService as AkitaRecipesService } from './recipes/state/recipes.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './main/main.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { RecipeListItemComponent } from './recipe-list-item/recipe-list-item.component';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
-import { environment } from '../environments/environment';
+import { RecipesQuery } from './recipes/state/recipes.query';
+import { RecipesStore } from './recipes/state/recipes.store';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { environment } from '../environments/environment';
   ],
   providers: [
     RecipesService,
+    AkitaRecipesService,
+    RecipesQuery,
+    RecipesStore,
   ],
   bootstrap: [AppComponent]
 })
